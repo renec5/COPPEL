@@ -8,7 +8,7 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh "py.test -s -v /PycharmProjects/COPPEL/Tests/Tests.py --browser chrome"
+                sh "python3 -m pytest -s -v /PycharmProjects/COPPEL/Tests/Tests.py --browser chrome"
             }
         }
     }
