@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('Build'){
+            steps{
+                sh "echo starting execution"
+            }
+        }
+        stage("Test"){
+            steps{
+                sh "python3 -m pytest -s -v /PycharmProjects/COPPEL/Tests/Tests.py --browser chrome"
+            }
+        }
+    }
+}
