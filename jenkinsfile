@@ -8,6 +8,7 @@ pipeline{
         }
         stage("Test"){
             steps{
+                sh "pip install pytest"
                 sh "python3 -m pytest -s -v /PycharmProjects/COPPEL/Tests/Tests.py --browser chrome"
             }
         }
