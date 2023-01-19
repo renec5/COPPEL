@@ -22,7 +22,7 @@ class WebDriverFactory():
         # Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
         if(self.browser.upper() == "CHROME"):
 
-            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
+            driver = webdriver.Chrome(ChromeDriverManager().install(), options=opts)
             driver.delete_all_cookies()
             driver.get(baseURL)
         else:
