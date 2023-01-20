@@ -34,7 +34,7 @@ class SeleniumDriver:
     def getElement(self, locator, locatorType="xpath"):
         element = None
         try:
-            element = self.wait(EC.presence_of_element_located((self.getByType(locatorType), locator)))
+            element = self.wait.until(EC.presence_of_element_located(((self.getByType(locatorType), locator))))
             self.log.info("Element has been found successfully with locatorType: {0} and locator: {1}".format(locatorType, locator))
         except:
             self.log.info(
@@ -44,7 +44,7 @@ class SeleniumDriver:
     def getElements(self, locator, locatorType="xpath"):
         element = None
         try:
-            element = self.wait(EC.presence_of_all_elements_located((self.getByType(locatorType), locator)))
+            element = self.wait.until(EC.presence_of_all_elements_located(((self.getByType(locatorType), locator))))
             self.log.info("Elements have been found successfully with locatorType: {0} and locator: {1}".format(locatorType, locator))
         except:
             self.log.error(
@@ -54,7 +54,7 @@ class SeleniumDriver:
     def clickElement(self, locator, locatorType="xpath"):
         element = None
         try:
-            element = self.wait(EC.element_to_be_clickable((self.getByType(locatorType), locator)))
+            element = self.wait.until(EC.element_to_be_clickable(((self.getByType(locatorType), locator))))
             element.click()
             self.log.info("Element has been clicked correctly with locatorType: {0} and locator: {1}".format(locatorType, locator))
         except:
@@ -64,7 +64,7 @@ class SeleniumDriver:
     def sendKeys(self, data, locator, locatorType="xpath"):
         element = None
         try:
-            element = self.getElement()
+            element = self.getElement(locator, locatorType)
             element.send_keys(data)
             self.log.info("Data {0} has been typed correctly on element with locatorType: {1} and locator: {2}".format(data, locatorType, locator))
         except:
