@@ -1,1 +1,8 @@
 Automation.log
+venv/lib/python3.8/
+venv/bin/
+Pages/__pycache__/
+ConfigFiles/__pycache__/
+venv/share/
+Tests/__pycache__/
+AllureReports/

@@ -11,6 +11,8 @@ class WebDriverFactory():
 
     def getDriverInstance(self):
         baseURL = "https://www.coppel.com/"
+        # baseURL = "https://prodauth.coppel.com/"
+        # baseURL = "https://qaauth.coppel.com/"
         opts = Options()
 
         # opts.binary_location = "chromedriver.exe"

@@ -12,6 +12,8 @@ class WelcomePage(SeleniumDriver):
     _iniciarSesionOption = "//a[@id='signInQuickLink']"
     _emailField = "//input[@name='logonId']"
     _passwordField = "//input[@name='logonPassword']"
+    _searchBar = "//input[@id='SimpleSearchForm_SearchTerm']"
+    _searchBtn = "(//a[@title='Buscar'])[2]"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -22,8 +24,6 @@ class WelcomePage(SeleniumDriver):
         self.clickElement(self._iniciarSesionDropDownBtn)
         time.sleep(2)
         self.clickElement(self._iniciarSesionOption)
-        self.sendKeys("testgmail.com", self._emailField)
-        self.sendKeys("123456", self._passwordField)
         """
         pdb.set_trace()
         
@@ -32,3 +32,13 @@ class WelcomePage(SeleniumDriver):
         """
 
         time.sleep(2)
+
+    def searchProducts(self, productToSearch):
+        self.sendKeys(productToSearch, self._searchBar)
+        self.clickElement(self._searchBtn)
+
+    def validateSearchResults(self, productSearched):
+        # pdb.set_trace()
+        productSearchResult = self.getElement("//h1[contains(text(),'" + productSearched + "')]")
+        self.Log("Results for product searched are displayed on screen", True)
+        return (True if productSearchResult.is_displayed() else False)
